@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: ['http://localhost:5173'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
@@ -26,6 +26,7 @@ import appointmentRoutes from './routes/appointmentRoutes.js';
 import notificationRoutes from './routes/notificationRoutes.js';
 import qrRoutes from './routes/qrRoutes.js';
 import { scheduleMedicationReminders } from './services/notificationservices.js';
+const reportsRouter = require('./routes/reports');
 
 app.use('/api/auth', authRoutes);
 app.get('/', (req, res) => {
@@ -43,6 +44,7 @@ app.use('/api/prescriptions', prescriptionRoutes);
 app.use('/api/appointments', appointmentRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/qrcodes', qrRoutes);
+app.use('/api/reports', reportsRouter);
 
 scheduleMedicationReminders(); // Start scheduling medication reminders
 

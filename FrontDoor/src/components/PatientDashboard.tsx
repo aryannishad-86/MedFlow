@@ -23,7 +23,7 @@ const PatientDashboard = () => {
         }
 
         const response = await fetch(
-          "http://localhost:8000/api/patient/profile",
+          "http://localhost:3000/api/patient/profile",
           {
             headers: {
               Authorization: `Bearer ${token}`,
