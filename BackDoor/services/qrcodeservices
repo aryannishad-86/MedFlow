@@ -1,0 +1,7 @@
+/*const QRCode = require('qrcode');
+
+exports.generateQRCode = async (patientId) => {
+  const qrData = `https://yourapp.com/reports/${patientId}`;
+  return await QRCode.toDataURL(qrData);
+};*/
+
